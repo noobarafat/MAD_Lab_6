@@ -18,18 +18,34 @@ class LabClass05 extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 21, 59, 224),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.horizontal, // Allows horizontal scrolling
-          child: Row(
+        drawer: Drawer(
+          child: ListView(
             children: [
-              CachedNetworkImage(
-                imageUrl: 
-                "https://www.citypng.com/public/uploads/preview/hd-blue-apple-watch-series-6-png-704081694622134gll0hgaum4.png",
-                placeholder:(context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => 
-                Text("Error Loading Image"),
-              )
-
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: Colors.blue, // Optional: Adds background color
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Icon(Icons.circle, size: 40, color: Colors.white), // Improved UI
+                    TextButton(
+                      onPressed: () {},
+                      child: const Icon(Icons.headphones, color: Colors.white), // Ensure proper child widget
+                    ),
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.image),
+                title: const Text("Images"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text("Settings"),
+                onTap: () {},
+              ),
             ],
           ),
         ),

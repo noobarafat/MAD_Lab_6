@@ -64,12 +64,15 @@ class PriceCard extends StatelessWidget {
             ),
           ),
           
-          // Mi Band Image
-          Container(
-            width: 150,
-            height: 150,
-            child: CustomPaint(
-            ),
+          // Product Image from Online URL
+          Image.network(
+            'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/awjogtdnqxniqqk0wpgf/AIR+MAX+270.png', // Replace with your online image URL
+            width: 250,
+            height: 250,
+            fit: BoxFit.contain,
+            errorBuilder: (context, error, stackTrace) {
+              return const Icon(Icons.broken_image, size: 100, color: Colors.grey);
+            },
           ),
           
           // Product Name

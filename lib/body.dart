@@ -8,18 +8,36 @@ class AppBody extends StatefulWidget {
 }
 
 class _AppBodyState extends State<AppBody> {
+  int currentIndex = 1;
+  final List<Widget> page = [
+    Text("Home"),
+    Text("Settings"),
+    Text("Error"),
+  ];
+  void onClickMenu(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        onTap: onClickMenu,
+        currentIndex: currentIndex,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.stadium),
+            icon: Icon(Icons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
+            icon: Icon(Icons.settings),
+            label: "Settings",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.error),
+            label: "Error",
           ),
         ],
       ),
